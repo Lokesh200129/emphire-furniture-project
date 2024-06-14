@@ -1,0 +1,27 @@
+<body>
+    <%- include('includes/header') %>
+    <%- include('includes/flash') %>
+    <p class="heading">Update Product</p>
+
+        <form  method="POST" action="/product/update/<%=list.id%>?_method=PUT" class="createForm">
+            
+            <div>
+                <label for="name">Name: </label>
+                <input name="product[name]" type="text" id="name" value="<%= list.name %>" placeholder="Name">
+            </div>
+            <div>
+                <label for="category">Category: </label>
+                <input name="product[category]" type="text" id="category"  value="<%= list.category %>" placeholder="category" disabled>
+            </div>
+            <div>
+                <label for="description">Description: </label>
+                <input name="product[description]" type="text" id="description"  value="<%= list.description %>" placeholder="description">
+            </div>
+            <div>
+                <label for="price">Price: </label>
+                <input name="product[price]" type="text" id="price"  value="<%= list.price %>" placeholder="Price">
+            </div>
+            <button>Submit</button>
+        </form>
+
+</body>

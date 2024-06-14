@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+<body>
+  <%- include('includes/header') %>
+    <%- include('./includes/flash') %>
+
+  <p class="heading">CONTACT US </p>
+
+    <form method="POST" class="contact" action="https://api.web3forms.com/submit">
+        <input type="hidden" name="access_key" value="086cf159-5f1d-43d6-95d0-ef12d0810172">
+        <div>
+            <!-- <label for="name">NAME :</label> -->
+            <input  name="name" type="text" id="name" required placeholder="Enter Your Name">
+            
+        </div>
+        <div>
+            <!-- <label for="email">EMAIL :</label> -->
+            <input inputmode="email" name="email" type="email" id="email" required placeholder="Enter Your Email">
+        </div>
+        <div>
+            <!-- <label for="number">PHONE :</label> -->
+            <input inputmode="numeric" name="number" type="number" id="number" required placeholder="Enter Your Number">
+        </div>
+        
+        <button >Submit</button>
+    </form>
+
+
+</body>
+
+</html>

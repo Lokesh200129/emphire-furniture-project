@@ -1,0 +1,55 @@
+<%- include('../includes/header') %> <%- include('../includes/flash') %>
+
+    <body>
+      <div class="dashboard">
+        <h1>Admin Dashboard</h1>
+        <a href="/product/create"><button class="add-button">Add Product</button></a>
+        <div class="table" style="overflow-y: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>S.no</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="productData">
+              <% data.forEach((tdata, count)=> { %>
+                <tr>
+                  <td>
+                    <%= count + 1 %>
+                  </td>
+                  <td>
+                    <img src="<%= tdata.image %>" alt="product" height="80rem" width="80rem">
+
+                  </td>
+                  <td>
+                    <%= tdata.name %>
+                  </td>
+                  <td>
+                    <%= tdata.category %>
+                  </td>
+                  <td>
+                    <%= tdata.description %>
+                  </td>
+                  <td>
+                    <%= tdata.price %>
+                  </td>
+                  <td>
+                    <a style="display: inline" href="/product/<%=tdata.id%>/edit"><button
+                        class="update-btn">Update</button></a>
+                    <form style="display: inline" method="POST" action="/product/delete/<%=tdata.id%>?_method=DELETE">
+                      <button class="delete-btn">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </body>

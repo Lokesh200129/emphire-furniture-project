@@ -1,0 +1,22 @@
+<% if(success && success.length>0) { %>
+    <div class="alert alert-success  mx-auto" style="max-width: 500px; margin-top: 5rem;"role="alert">
+        <h4 style="display: inline;"><%= success %></h4>
+        <!-- <a href="#" onclick="document.getElementById('cont').style.display='none'">&times;</i></a> -->
+        <button  style="display: inline; margin-right: 1rem;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% }  %>    
+<% if(error && error.length>0) { %>
+    <div class="alert alert-danger d-flex align-items-center mx-auto"  style="max-width: 500px; margin-top: 5rem;" role="alert" >
+        <h4 style="display: inline;"><%= error %></h4>  
+        <button   style="display: inline; padding-right: 0.3rem;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% }  %>  
+<script>
+    // function cross(){
+    //     let btn = document.getElementById("id");
+    //     btn.addEventListener(onclick, function(){
+    //     style.display="none"
+    //     })
+    // }
+    
+</script>  

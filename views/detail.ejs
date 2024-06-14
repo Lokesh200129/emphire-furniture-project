@@ -1,0 +1,21 @@
+<%- include('includes/header') %>
+
+<section>
+    <div class="detail">
+        <div class="detail-image">
+            <img src=" <%= list.image %>" alt="product">  
+        </div>
+        <div class="detail-cont">
+            <h1><b><%= list.name %></b></p></h1>
+            <br>
+            <hr>
+            <p class="detail-desc">
+              Description: <%= list.description %>
+            </p>
+            <br>
+            <p class="detail-price">Price:  &#X20B9; <%= Number(list.price) - Number(list.price) * 0.10 %>  per Sq feet</p>
+
+        </div>
+      </div>
+
+</section>

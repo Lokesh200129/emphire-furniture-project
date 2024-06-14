@@ -1,0 +1,64 @@
+<%- include('includes/header') %>
+
+  <main>
+      <div class="category">
+        <button onclick="showCategory('')" class="btn">All</button>
+        <button onclick="showCategory('door')" class="btn">Doors</button>
+        <button onclick="showCategory('chair')" class="btn">Chairs</button></a>
+        <button onclick="showCategory('table')" class="btn">Tables</button>
+        <button onclick="showCategory('bed')" class="btn">Beds</button>
+        <button onclick="showCategory('sofa')" class="btn">Sofa set</button>
+        <button onclick="showCategory('cabinet')" class="btn">T.V Cabinet</button>
+        <button onclick="showCategory('reck')" class="btn">Shoe Reck</button>
+        <button onclick="showCategory('dinning')" class="btn">Dinning Table</button>
+  
+      </div>
+    
+   
+    <div class="card-cont">
+      <%for(let card of data){%>
+        <div class="cardd" data-category="<%= card.category %>">
+          <img src="<%= card.image %>" class="card-img-top" alt="...">
+          <div class="card-bdy">
+            <h5 class="card-title"><b>
+
+                <%=card.name%>
+              </b></h5>
+            <p class="card-text">
+              <%= card.description %>
+            </p>
+            <p style="display: inline;" class="card-price">&#X20B9; <%= Number(card.price).toLocaleString("en-IN") %> </p>
+            &nbsp;
+            <p style="display: inline;"> &#X20B9; <%= Number(card.price) - Number(card.price) * 0.10 %>  per Sq feet</p>
+
+            <a style="display: block; width: 10rem;" href="/product/<%=card.id %> " class="btn">More detail</a>
+          </div>
+        </div>
+        <% } %>
+    </div>
+  </main>
+  <script>
+    // document.getElementsByClassName("card").addEventListener('click', function(event) {
+    // event.stopPropagation(); 
+    // }, true);
+
+    function showCategory(category) {
+
+      const products = document.getElementsByClassName('card');
+      // window.location.href = '/product/category?category=' + category;
+
+      for (let i = 0; i < products.length; i++) {
+        const productCategory = products[i].getAttribute('data-category')
+
+        if (category === '' || category === productCategory) {
+          products[i].style.display = 'block'
+        }
+        else {
+          products[i].style.display = 'none'
+
+        }
+      }
+    }
+   
+  </script>
+  <%- include('includes/footer') %>

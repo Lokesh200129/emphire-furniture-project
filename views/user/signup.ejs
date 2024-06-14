@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+<body>
+    <%- include('../includes/header') %>
+    <%- include('../includes/flash') %>
+
+        <p class="heading">Signup now!</p>
+        <form class="signup" action="/signup" method="POST" novalidate>
+            <div>
+                <label for="email">Email</label>
+                <input name="email" inputmode="email" type="email" placeholder="Enter email" required>
+            </div>
+            <div>
+                <label for="username">Username</label>
+                <input name="username" type="text" placeholder="Enter username" required>
+            </div>
+            <div>
+                <label for="Password">Password</label>
+                <input name="password" type="password" placeholder="Enter username" required>
+            </div>
+            <button>Submit</button>
+        </form>
+
+
+</body>
+<!-- <script>
+    let form = document.getElementById('form')
+    form.addEventListener(onsubmit, function(e){
+        e.preventDefault();
+    })
+</script> -->
+
+</html>

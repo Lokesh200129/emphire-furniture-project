@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create</title>
+    <link rel="stylesheet" href="../public/css/style.css" />
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <p class="heading">Create Product</p>
+
+        <form method="POST" action="/product/create" enctype="multipart/form-data">
+            <div class="col-7 offset-3">
+
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name: </label>
+                    <input name="product[name]" class="form-control" type="text" id="name" placeholder="Name"
+                        required />
+                </div>
+
+                <div class="mb-3 ">
+                    <label class="form-label" for="image">Image: </label>
+                    <input class="form-control" name="product[image]" type="file" id="image" placeholder="Image Link"
+                        required />
+                </div>
+                <div class="mb-3 ">
+                    <label class="form-label" for="category">Category: </label>
+                    <!-- <input name="product[category]" type="text" id="category" placeholder="category"> -->
+                    <!-- Using select tag we can add dropdown in form -->
+                    <select id="category" name="product[category]" required>
+                        <option value="">Select a category</option>
+                        <option value="door">Door</option>
+                        <option value="chair">Chair</option>
+                        <option value="table">Table</option>
+                        <option value="bed">Bed</option>
+                        <option value="sofa">Sofa</option>
+                        <option value="cabinet">T.V Cabinet</option>
+                        <option value="reck">Shoe Rack</option>
+                        <option value="dinning">Dinning Table</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description: </label>
+                    <input name="product[description]" class="form-control" type="text" id="description"
+                        placeholder="description" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price: </label>
+                    <input name="product[price]" class="form-control" type="text" id="price" placeholder="Price"
+                        required />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+</body>
+
+</html>
