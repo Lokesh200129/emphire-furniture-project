@@ -6,6 +6,7 @@ const {main} = require("./db")
 const passport = require("passport");
 const localstatergy = require("passport-local");
 const session = require("express-session");
+const mongoStore = require("connect-mongo")
 const flash = require('connect-flash');
 const User = require("./models/user");
 const methodOverride = require('method-override');
@@ -22,7 +23,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride('_method'))
 
+const store = mongoStore.create({
+    mongoUrl: process.env.MONGO_CONNECTION_LINK,
+    crypto:{
+        secret:process.env.SECERET
+    },
+    touchAfter: 24*3600,
+})
+
 const sessionOption = {
+    store,
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
@@ -32,6 +42,9 @@ const sessionOption = {
 
     }
 }
+store.on('error', ()=>{
+    console.log("Error in store");
+})
 // session is used for uniquely identify the user is using the site 
 app.use(session(sessionOption));
 // passport initialize 

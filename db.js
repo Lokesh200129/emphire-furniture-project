@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url= "mongodb://127.0.0.1:27017/furniture"
+const url= process.env.MONGO_CONNECTION_LINK
 
 main()
     .then(() => {

@@ -5,10 +5,10 @@ const passport = require("passport");
 const { isLoggedIn } = require("../middleware")
 const localstatergy = require("passport-local");
 
-router.get("/signup", isLoggedIn, (req, res) => {
+router.get("/signup", isLoggedIn,  (req, res) => {
     res.render("user/signup.ejs");
 })
-router.post("/signup", isLoggedIn, async (req, res) => {
+router.post("/signup", isLoggedIn,  async (req, res) => {
     try {
         let data = req.body;
        
@@ -16,7 +16,7 @@ router.post("/signup", isLoggedIn, async (req, res) => {
         let registereduser = await User.register(data, data.password);
         req.flash("sucess", "Signed up sucessfully")
 
-        res.redirect("user/signup.ejs")
+        res.redirect("/dashboard")
         req.logIn(registereduser, (error) => {
             if (error) {
                 return next(error)
